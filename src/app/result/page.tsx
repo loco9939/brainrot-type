@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { ResultCard } from '@/components/ResultCard';
 import { useQuiz } from '@/context/QuizContext';
 import { getResultById } from '@/lib/logic';
+import { FadeIn, PageTransition, SlideDown, StaggerContainer, StaggerItem } from '@/components/ui/animations';
 
 export default function ResultPage() {
   const router = useRouter();
@@ -63,22 +64,30 @@ export default function ResultPage() {
   };
 
   return (
-    <div className="container max-w-4xl mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-center mb-8">당신의 브레인롯 유형 결과</h1>
-      
-      <div className="mb-8">
-        <ResultCard
-          result={result}
-          onRestart={restartQuiz}
-          onShare={handleShare}
-        />
+    <PageTransition>
+      <div className="container max-w-4xl mx-auto px-4 py-8">
+        <SlideDown>
+          <h1 className="text-3xl font-bold text-center mb-8">당신의 브레인롯 유형 결과</h1>
+        </SlideDown>
+        
+        <FadeIn delay={0.3}>
+          <div className="mb-8">
+            <ResultCard
+              result={result}
+              onRestart={restartQuiz}
+              onShare={handleShare}
+            />
+          </div>
+        </FadeIn>
+        
+        {shareSuccess && (
+          <FadeIn>
+            <div className="fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded-md shadow-md animate-pulse">
+              URL이 복사되었습니다!
+            </div>
+          </FadeIn>
+        )}
       </div>
-      
-      {shareSuccess && (
-        <div className="fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded-md shadow-md">
-          URL이 복사되었습니다!
-        </div>
-      )}
-    </div>
+    </PageTransition>
   );
 }
