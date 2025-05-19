@@ -3,14 +3,21 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   // 환경 변수 설정
   env: {
-    NEXT_PUBLIC_BASE_URL: process.env.VERCEL_URL 
-      ? `https://${process.env.VERCEL_URL}` 
-      : 'http://localhost:5050',
+    NEXT_PUBLIC_BASE_URL: process.env.VERCEL_URL
+      ? process.env.VERCEL_URL
+      : "https://brainrot-personality-test.windsurf.build",
   },
-  
+
   // 이미지 도메인 설정
   images: {
-    domains: ['localhost', 'vercel.app', 'cdn.jsdelivr.net'],
+    domains: [
+      "localhost",
+      "vercel.app",
+      "cdn.jsdelivr.net",
+      "windsurf.build",
+      "brainrot-personality-test.windsurf.build",
+    ],
+    unoptimized: true,
   },
 };
 
