@@ -42,7 +42,7 @@ export default function Home() {
                   브레인롯 인격 테스트
                 </CardTitle>
                 <CardDescription className="text-center">
-                  8개의 질문으로 알아보는 당신의 브레인롯 유형
+                  15개의 질문으로 알아보는 당신의 브레인롯 유형
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4 text-center">
@@ -50,32 +50,32 @@ export default function Home() {
                   <div className="flex flex-wrap gap-3 justify-center">
                     <StaggerItem>
                       <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
-                        🦈 3발 상어형
+                        🦈 트랄랄레로 트랄랄라형
                       </span>
                     </StaggerItem>
                     <StaggerItem>
                       <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
-                        🐸 개굴브레인형
+                        🐊 봄바르디로 크로코딜로형
                       </span>
                     </StaggerItem>
                     <StaggerItem>
                       <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
-                        🐤 TTS 중독형
+                        🏏 퉁퉁퉁퉁퉁퉁퉁퉁퉁퉁퉁퉁 사후르형
                       </span>
                     </StaggerItem>
                     <StaggerItem>
                       <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
-                        🤖 회로터짐형
+                        🐸 보네카 암발라부형
                       </span>
                     </StaggerItem>
                     <StaggerItem>
                       <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
-                        🪿 의외의 진지충형
+                        🌳 브르르 브르르 파타핌형
                       </span>
                     </StaggerItem>
                     <StaggerItem>
                       <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
-                        🐍 무의미 분석가형
+                        🍌 침판지니 바나니니
                       </span>
                     </StaggerItem>
                   </div>
@@ -98,7 +98,7 @@ export default function Home() {
 
           <FadeIn delay={0.6}>
             <div className="text-center text-sm text-muted-foreground mt-8">
-              <p>트랄랄레로 | 3발 상어 | 브레인터짐 | 의미 없음 | 혼돈</p>
+              <p>트랄랄레로 | 브레인롯 | 퉁퉁퉁 사후르 | 의미 없음 </p>
               <p className="mt-2">© 2025 브레인롯 테스트</p>
             </div>
           </FadeIn>

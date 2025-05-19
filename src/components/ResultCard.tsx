@@ -1,10 +1,16 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { ResultType } from '@/data/results';
-import { cn } from '@/lib/utils';
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { ResultType } from "@/data/results";
+import Image from "next/image";
 
 interface ResultCardProps {
   result: ResultType;
@@ -27,13 +33,13 @@ export function ResultCard({ result, onRestart, onShare }: ResultCardProps) {
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-6 pt-2">
-        <div className="relative w-full h-52 md:h-64 overflow-hidden rounded-lg shadow-sm">
+        <div className="relative w-full h-[400px] overflow-hidden rounded-lg shadow-sm">
           {result.imageUrl ? (
             <Image
               src={result.imageUrl}
               alt={result.title}
               fill
-              className="object-cover"
+              className="object-contain"
             />
           ) : (
             <div className="flex items-center justify-center w-full h-full bg-muted">
@@ -43,24 +49,37 @@ export function ResultCard({ result, onRestart, onShare }: ResultCardProps) {
         </div>
 
         <div className="space-y-3">
-          <h3 className="text-lg md:text-xl font-semibold text-primary">특징:</h3>
+          <h3 className="text-lg md:text-xl font-semibold text-primary">
+            특징:
+          </h3>
           <ul className="space-y-2 pl-5 list-disc text-base md:text-lg">
             {result.characteristics.map((trait, index) => (
-              <li key={index} className="leading-relaxed">{trait}</li>
+              <li key={index} className="leading-relaxed">
+                {trait}
+              </li>
             ))}
           </ul>
         </div>
 
         <div className="p-4 md:p-5 rounded-lg bg-muted/60 border border-muted">
-          <h3 className="text-lg md:text-xl font-semibold mb-2 text-primary">궁합:</h3>
+          <h3 className="text-lg md:text-xl font-semibold mb-2 text-primary">
+            궁합:
+          </h3>
           <p className="text-base md:text-lg">{result.compatibility}</p>
         </div>
       </CardContent>
       <CardFooter className="flex flex-col sm:flex-row gap-4 justify-center pt-4 pb-5">
-        <Button onClick={onShare} className="w-full sm:w-auto text-base font-medium py-6 md:py-7">
+        <Button
+          onClick={onShare}
+          className="w-full sm:w-auto text-base font-medium py-6 md:py-7"
+        >
           결과 공유하기
         </Button>
-        <Button variant="outline" onClick={onRestart} className="w-full sm:w-auto text-base py-6 md:py-7">
+        <Button
+          variant="outline"
+          onClick={onRestart}
+          className="w-full sm:w-auto text-base py-6 md:py-7"
+        >
           다시 테스트하기
         </Button>
       </CardFooter>

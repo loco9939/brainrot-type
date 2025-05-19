@@ -1,5 +1,5 @@
-import { Option } from '../data/questions';
-import { resultTypes } from '../data/results';
+import { Option } from "../data/questions";
+import { resultTypes } from "../data/results";
 
 // 사용자 응답 타입 정의
 export interface UserAnswer {
@@ -24,12 +24,12 @@ export function calculateResult(
 ): string {
   // 각 유형별 점수 초기화
   const scores: ScoreResult = {
-    shark: 0,
-    frog: 0,
-    tts: 0,
-    circuit: 0,
-    serious: 0,
-    analyst: 0,
+    tralalero: 0,
+    bombardiro: 0,
+    suhuhr: 0,
+    ambalaboo: 0,
+    patafim: 0,
+    chimpanini: 0,
   };
 
   // 각 응답에 대해 점수 계산
@@ -46,7 +46,7 @@ export function calculateResult(
 
   // 가장 높은 점수를 받은 유형 찾기
   let maxScore = 0;
-  let resultTypeId = 'shark'; // 기본값
+  let resultTypeId = "tralalero"; // 기본값
 
   Object.entries(scores).forEach(([typeId, score]) => {
     if (score > maxScore) {
@@ -64,7 +64,7 @@ export function calculateResult(
  * @returns 결과 유형 객체
  */
 export function getResultById(resultTypeId: string) {
-  return resultTypes[resultTypeId] || resultTypes.shark; // 기본값으로 shark 반환
+  return resultTypes[resultTypeId] || resultTypes.tralalero; // 기본값으로 tralalero 반환
 }
 
 /**
