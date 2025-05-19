@@ -25,7 +25,7 @@
 ## 🌐 4. 공유 기능 구현
 
 - [x] 결과 페이지 공유용 링크 구성 (URL 쿼리 기반)
-- [] OG 이미지 설정 (기본 텍스트 버전 → 추후 이미지 API 확장 가능)
+- [x] OG 이미지 설정 (기본 텍스트 버전 → 추후 이미지 API 확장 가능)
 - [x] navigator.share API 또는 SNS 공유 버튼 (Twitter, Facebook 등)
 
 ## ✨ 5. UI 개선 및 UX 강화
@@ -41,8 +41,8 @@
 ## 🚀 7. 배포 및 SEO
 
 - [] Vercel에 배포 (windsurf → GitHub → Vercel 연동)
-- [] SEO 및 OG 메타태그 설정
-- [] 결과 페이지 OG 이미지 설정
+- [x] SEO 및 OG 메타태그 설정
+- [x] 결과 페이지 OG 이미지 설정
 
 ## 🧪 8. 테스트 및 마무리
 

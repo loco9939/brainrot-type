@@ -1,0 +1,137 @@
+"use client";
+
+import { Metadata } from 'next';
+import { ResultCard } from "@/components/ResultCard";
+import { FadeIn, PageTransition, SlideDown } from "@/components/ui/animations";
+import { useQuiz } from "@/context/QuizContext";
+import { getResultById } from "@/lib/logic";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+
+// 동적 메타데이터 생성 함수
+export async function generateMetadata({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }): Promise<Metadata> {
+  // searchParams에서 결과 타입 ID 가져오기
+  const typeId = searchParams.type as string || '';
+  const title = searchParams.title as string || '브레인롯 유형 테스트';
+  const emoji = searchParams.emoji as string || '🧠';
+  
+  // OG 이미지 URL 생성
+  const ogImageUrl = new URL(`/api/og?title=${encodeURIComponent(title)}&emoji=${encodeURIComponent(emoji)}&type=${encodeURIComponent(typeId)}`, process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000').toString();
+  
+  return {
+    title: `${title} | 브레인롯 인격 테스트 결과`,
+    description: `당신의 브레인롯 유형은 ${title}입니다. 브레인롯 인격 테스트로 알아보는 당신의 밈 캐릭터 유형.`,
+    openGraph: {
+      title: `나는 ${title} 유형이에요! | 브레인롯 인격 테스트`,
+      description: `당신의 브레인롯 유형은 ${title}입니다. 브레인롯 인격 테스트로 알아보는 당신의 밈 캐릭터 유형.`,
+      images: [{ url: ogImageUrl }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `나는 ${title} 유형이에요! | 브레인롯 인격 테스트`,
+      description: `당신의 브레인롯 유형은 ${title}입니다. 브레인롯 인격 테스트로 알아보는 당신의 밈 캐릭터 유형.`,
+      images: [ogImageUrl],
+    },
+  };
+}
+
+export default function ResultPage({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
+  const router = useRouter();
+  const { resultTypeId, restartQuiz, isComplete } = useQuiz();
+  const [shareSuccess, setShareSuccess] = useState(false);
+
+  // 결과가 없으면 퀴즈 페이지로 리다이렉트
+  useEffect(() => {
+    if (!isComplete || !resultTypeId) {
+      router.push("/quiz");
+    }
+  }, [isComplete, resultTypeId, router]);
+
+  // 결과 유형이 없으면 로딩 표시
+  if (!resultTypeId) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center">
+          <p className="text-xl">결과를 불러오는 중...</p>
+        </div>
+      </div>
+    );
+  }
+
+  const result = getResultById(resultTypeId);
+
+  // 결과 유형에 따른 쿼리 파라미터 추가
+  useEffect(() => {
+    if (resultTypeId && typeof window !== "undefined") {
+      const result = getResultById(resultTypeId);
+      const url = new URL(window.location.href);
+      url.searchParams.set("type", resultTypeId);
+      url.searchParams.set("title", result.title);
+      url.searchParams.set("emoji", result.emoji);
+
+      // URL 업데이트 (페이지 새로고침 없이)
+      window.history.replaceState({}, "", url.toString());
+    }
+  }, [resultTypeId]);
+
+  // 결과 공유 함수
+  const handleShare = async () => {
+    // 현재 URL
+    const url = window.location.href;
+
+    // 공유 기능이 지원되는지 확인
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: `나의 브레인롯 유형은 ${result.title}입니다!`,
+          text: `${result.description}`,
+          url: url,
+        });
+        setShareSuccess(true);
+      } catch (error) {
+        console.error("공유 실패:", error);
+      }
+    } else {
+      // 공유 기능이 지원되지 않는 경우 URL 복사
+      navigator.clipboard.writeText(url).then(
+        () => {
+          setShareSuccess(true);
+          setTimeout(() => setShareSuccess(false), 2000);
+        },
+        (err) => {
+          console.error("URL 복사 실패:", err);
+        }
+      );
+    }
+  };
+
+  return (
+    <PageTransition>
+      <div className="container max-w-4xl mx-auto px-4 py-8">
+        <SlideDown>
+          <h1 className="text-3xl font-bold text-center mb-8">
+            당신의 브레인롯 유형 결과
+          </h1>
+        </SlideDown>
+
+        <FadeIn delay={0.3}>
+          <div className="mb-8">
+            <ResultCard
+              result={result}
+              onRestart={restartQuiz}
+              onShare={handleShare}
+            />
+          </div>
+        </FadeIn>
+
+        {shareSuccess && (
+          <FadeIn>
+            <div className="fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded-md shadow-md animate-pulse">
+              URL이 복사되었습니다!
+            </div>
+          </FadeIn>
+        )}
+      </div>
+    </PageTransition>
+  );
+}
