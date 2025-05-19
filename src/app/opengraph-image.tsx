@@ -78,7 +78,7 @@ export default async function Image() {
                 borderRadius: '999px',
                 fontSize: '24px',
               }}>
-                🦈 3발 상어형
+                🦈 트랄랄레로 트랄랄라
               </div>
               <div style={{ 
                 backgroundColor: 'rgba(76, 175, 80, 0.1)',
@@ -87,7 +87,7 @@ export default async function Image() {
                 borderRadius: '999px',
                 fontSize: '24px',
               }}>
-                🐸 개굴브레인형
+                🐊 봄바르디로 크로코딜로
               </div>
               <div style={{ 
                 backgroundColor: 'rgba(76, 175, 80, 0.1)',
@@ -96,7 +96,7 @@ export default async function Image() {
                 borderRadius: '999px',
                 fontSize: '24px',
               }}>
-                🐤 TTS 중독형
+                🏏 퉁퉁퉁퉁 사후르
               </div>
             </div>
             <div
@@ -108,7 +108,7 @@ export default async function Image() {
                 color: '#888',
               }}
             >
-              트랄랄레로 | 3발 상어 | 브레인터짐 | 의미 없음 | 혼돈
+              트랄랄레로 트랄랄라 | 봄바르디로 크로코딜로 | 퉁퉁퉁퉁 사후르 | 보네카 암발라부 | 브르르 브르르 파타핌 | 침판지니 바나니니
             </div>
           </div>
         </div>

@@ -9,9 +9,37 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     
     // 결과 유형 파라미터 가져오기
+    const resultId = searchParams.get('id');
     const title = searchParams.get('title') || '브레인롯 유형 테스트';
     const emoji = searchParams.get('emoji') || '🧠';
     const type = searchParams.get('type') || '당신의 브레인롯 유형은?';
+    
+    // 결과 유형에 따른 배경색 설정
+    let bgColor = '#f5f5f5';
+    let accentColor = '#4CAF50';
+    
+    switch(resultId) {
+      case 'tralalero':
+        accentColor = '#4CAF50';
+        break;
+      case 'bombardiro':
+        accentColor = '#2196F3';
+        break;
+      case 'sahuhr':
+        accentColor = '#F44336';
+        break;
+      case 'ambalaboo':
+        accentColor = '#9C27B0';
+        break;
+      case 'patafim':
+        accentColor = '#8BC34A';
+        break;
+      case 'chimpanzini':
+        accentColor = '#FFC107';
+        break;
+      default:
+        accentColor = '#4CAF50';
+    }
 
     return new ImageResponse(
       (
@@ -23,7 +51,7 @@ export async function GET(request: NextRequest) {
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            backgroundColor: '#f5f5f5',
+            backgroundColor: bgColor,
             padding: '40px',
             fontFamily: 'sans-serif',
           }}
@@ -49,7 +77,7 @@ export async function GET(request: NextRequest) {
                 fontWeight: 'bold',
                 textAlign: 'center',
                 marginBottom: '10px',
-                color: '#4CAF50',
+                color: accentColor,
               }}
             >
               {type}
@@ -83,7 +111,7 @@ export async function GET(request: NextRequest) {
                 color: '#888',
               }}
             >
-              트랄랄레로 | 3발 상어 | 브레인터짐 | 의미 없음 | 혼돈
+              트랄랄레로 트랄랄라 | 봄바르디로 크로코딜로 | 퉁퉁퉁퉁 사후르 | 보네카 암발라부 | 브르르 브르르 파타핌 | 침판지니 바나니니
             </div>
           </div>
         </div>
