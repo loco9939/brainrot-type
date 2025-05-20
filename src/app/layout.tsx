@@ -65,13 +65,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // GA4 측정 ID - 실제 ID로 교체 필요
+  // GA4 측정 ID
   const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || "G-RJPNWEZBV3";
 
   return (
     <html lang="ko">
       <head>
-        {/* Google Analytics - 직접 스크립트 삽입 */}
+        {/* Google Analytics - 향상된 설정으로 직접 스크립트 삽입 */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
           strategy="afterInteractive"
@@ -81,7 +81,14 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${GA_MEASUREMENT_ID}');
+            gtag('config', '${GA_MEASUREMENT_ID}', {
+              send_page_view: true,
+              cookie_flags: 'SameSite=None;Secure',
+              cookie_domain: 'auto',
+              cookie_expires: 63072000, // 2년
+              transport_type: 'beacon',
+              debug_mode: false
+            });
           `}
         </Script>
       </head>

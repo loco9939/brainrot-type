@@ -1,3 +1,5 @@
+"use client";
+
 import {
   FadeIn,
   PageTransition,
@@ -16,13 +18,21 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { resultTypes } from "@/data/results";
+import { trackPageView, trackSessionStart } from "@/lib/analytics";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect } from "react";
 
 // 결과 유형 배열 생성
 const resultArray = Object.values(resultTypes);
 
 export default function Home() {
+  // 페이지 뷰 이벤트 추적
+  useEffect(() => {
+    trackSessionStart();
+    trackPageView("너의 브레인롯 유형은? | 메인", "/");
+  }, []);
+
   return (
     <PageTransition>
       <div className="flex min-h-screen flex-col items-center justify-center p-4 dark:from-neutral-900 dark:to-neutral-950 relative overflow-hidden">

@@ -4,7 +4,7 @@ import { ResultCard } from "@/components/ResultCard";
 import { FadeIn, PageTransition, SlideDown } from "@/components/ui/animations";
 import { useQuiz } from "@/context/QuizContext";
 import { ResultTestType } from "@/data/results";
-import { trackResultType, trackShareClick } from "@/lib/analytics";
+import { trackPageView, trackResultType, trackShareClick } from "@/lib/analytics";
 import { getResultById } from "@/lib/logic";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -43,6 +43,12 @@ export function ResultContent({
       const result = getResultById(resultTypeId);
       // GA에 결과 유형 이벤트 전송
       trackResultType(result.title);
+      
+      // 결과 페이지 뷰 이벤트 추적
+      trackPageView(
+        `나는 ${result.title} 유형이에요! | 브레인롯 인격 테스트`, 
+        `/result?type=${resultTypeId}`
+      );
     }
   }, [resultTypeId]);
 
