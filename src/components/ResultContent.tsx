@@ -4,6 +4,7 @@ import { ResultCard } from "@/components/ResultCard";
 import { FadeIn, PageTransition, SlideDown } from "@/components/ui/animations";
 import { useQuiz } from "@/context/QuizContext";
 import { getResultById } from "@/lib/logic";
+import { trackResultType, trackShareClick } from "@/lib/analytics";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -34,6 +35,15 @@ export function ResultContent({
 
     setIsLoading(false);
   }, [initialTypeId, contextResultTypeId, router]);
+  
+  // 결과 유형 추적 이벤트
+  useEffect(() => {
+    if (resultTypeId) {
+      const result = getResultById(resultTypeId);
+      // GA에 결과 유형 이벤트 전송
+      trackResultType(result.title);
+    }
+  }, [resultTypeId]);
 
   // 결과 유형에 따른 쿼리 파라미터 추가
   useEffect(() => {
@@ -64,6 +74,9 @@ export function ResultContent({
   const handleShare = async () => {
     // 현재 URL
     const url = window.location.href;
+    
+    // GA에 공유 버튼 클릭 이벤트 전송
+    trackShareClick("share_button");
 
     // 공유 기능이 지원되는지 확인
     if (navigator.share) {
@@ -74,6 +87,8 @@ export function ResultContent({
           url: url,
         });
         setShareSuccess(true);
+        // 성공적인 공유 이벤트 추적
+        trackShareClick("native_share_success");
       } catch (error) {
         console.error("공유 실패:", error);
       }
@@ -83,6 +98,8 @@ export function ResultContent({
         () => {
           setShareSuccess(true);
           setTimeout(() => setShareSuccess(false), 2000);
+          // URL 복사 성공 이벤트 추적
+          trackShareClick("url_copy_success");
         },
         (err) => {
           console.error("URL 복사 실패:", err);
@@ -93,6 +110,10 @@ export function ResultContent({
 
   // 테스트 다시 시작
   const handleRestart = () => {
+    // 테스트 재시작 이벤트 추적
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'restart_quiz');
+    }
     restartQuiz();
     router.push("/");
   };

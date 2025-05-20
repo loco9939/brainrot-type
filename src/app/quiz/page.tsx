@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { QuestionCard } from '@/components/QuestionCard';
 import { useQuiz } from '@/context/QuizContext';
 import { questions } from '@/data/questions';
+import { trackQuizStart, trackQuizComplete } from '@/lib/analytics';
 import { FadeIn, LoadingSpinner, PageTransition } from '@/components/ui/animations';
 
 export default function QuizPage() {
@@ -20,9 +21,18 @@ export default function QuizPage() {
     isComplete,
   } = useQuiz();
 
+  // 퀴즈 시작 이벤트 추적
+  useEffect(() => {
+    // 페이지 로드 시 퀴즈 시작 이벤트 추적
+    trackQuizStart();
+  }, []);
+  
   // 퀴즈가 완료되면 결과 페이지로 이동
   useEffect(() => {
     if (isComplete) {
+      // 퀴즈 완료 이벤트 추적
+      trackQuizComplete();
+      
       setIsLoading(true);
       // 약간의 지연 시간을 두어 로딩 애니메이션을 보여줌
       setTimeout(() => {
