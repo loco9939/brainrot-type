@@ -4,12 +4,6 @@ import { NextRequest } from "next/server";
 // 엣지 런타임 설정
 export const runtime = "edge";
 
-// 이미지 크기 설정
-export const size = {
-  width: 1200,
-  height: 630,
-};
-
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
@@ -216,15 +210,7 @@ export async function GET(request: NextRequest) {
             © 2025 브레인롯 인격 테스트
           </div>
         </div>
-      ),
-      {
-        width: 1200,
-        height: 630,
-        headers: {
-          "content-type": "image/png",
-          "cache-control": "public, max-age=31536000, immutable",
-        },
-      }
+      )
     );
   } catch (e) {
     console.error(e);
