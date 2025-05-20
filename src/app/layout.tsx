@@ -66,7 +66,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   // GA4 측정 ID - 실제 ID로 교체 필요
-  const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || "G-RJPNWEZBV3";
+  const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || "G-HY8BVPR336";
 
   return (
     <html lang="ko">
