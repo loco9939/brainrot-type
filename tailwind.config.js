@@ -81,11 +81,61 @@ module.exports = {
             animationTimingFunction: "cubic-bezier(0, 0, 0.2, 1)",
           },
         },
+        "float": {
+          "0%": {
+            transform: "translateY(0px) rotate(0deg)",
+          },
+          "33%": {
+            transform: "translateY(-10px) rotate(-2deg)",
+          },
+          "66%": {
+            transform: "translateY(5px) rotate(2deg)",
+          },
+          "100%": {
+            transform: "translateY(0px) rotate(0deg)",
+          },
+        },
+        "float-reverse": {
+          "0%": {
+            transform: "translateY(0px) rotate(0deg)",
+          },
+          "33%": {
+            transform: "translateY(10px) rotate(2deg)",
+          },
+          "66%": {
+            transform: "translateY(-5px) rotate(-2deg)",
+          },
+          "100%": {
+            transform: "translateY(0px) rotate(0deg)",
+          },
+        },
+        "pulse-glow": {
+          "0%, 100%": {
+            opacity: 0.6,
+            transform: "scale(1)",
+          },
+          "50%": {
+            opacity: 0.8,
+            transform: "scale(1.05)",
+          },
+        },
+        "spin-slow": {
+          "0%": {
+            transform: "rotate(0deg)",
+          },
+          "100%": {
+            transform: "rotate(360deg)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "bounce-slow": "bounce-slow 3s infinite",
+        "float": "float 8s ease-in-out infinite",
+        "float-reverse": "float-reverse 7s ease-in-out infinite",
+        "pulse-glow": "pulse-glow 4s ease-in-out infinite",
+        "spin-slow": "spin-slow 15s linear infinite",
       },
       spacing: {
         1: "8px",
