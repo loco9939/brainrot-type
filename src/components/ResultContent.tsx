@@ -3,8 +3,8 @@
 import { ResultCard } from "@/components/ResultCard";
 import { FadeIn, PageTransition, SlideDown } from "@/components/ui/animations";
 import { useQuiz } from "@/context/QuizContext";
-import { getResultById } from "@/lib/logic";
 import { trackResultType, trackShareClick } from "@/lib/analytics";
+import { getResultById } from "@/lib/logic";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -35,7 +35,7 @@ export function ResultContent({
 
     setIsLoading(false);
   }, [initialTypeId, contextResultTypeId, router]);
-  
+
   // 결과 유형 추적 이벤트
   useEffect(() => {
     if (resultTypeId) {
@@ -74,7 +74,7 @@ export function ResultContent({
   const handleShare = async () => {
     // 현재 URL
     const url = window.location.href;
-    
+
     // GA에 공유 버튼 클릭 이벤트 전송
     trackShareClick("share_button");
 
@@ -82,8 +82,8 @@ export function ResultContent({
     if (navigator.share) {
       try {
         await navigator.share({
-          title: `나의 브레인롯 유형은 ${result.title}입니다!`,
-          text: `${result.description}`,
+          title: `나의 브레인롯 유형은 ${result.title}입니다!\n`,
+          text: `\n${result.description}\n\n브레인롯 인격 테스트에서 확인하세요!`,
           url: url,
         });
         setShareSuccess(true);
@@ -111,8 +111,8 @@ export function ResultContent({
   // 테스트 다시 시작
   const handleRestart = () => {
     // 테스트 재시작 이벤트 추적
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'restart_quiz');
+    if (typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag("event", "restart_quiz");
     }
     restartQuiz();
     router.push("/");

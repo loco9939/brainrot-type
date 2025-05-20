@@ -90,7 +90,7 @@ export const resultTypes: Record<string, ResultType> = {
   },
   sahuhr: {
     id: "sahuhr",
-    title: "퉁퉁퉁퉁 사후르",
+    title: "퉁퉁퉁퉁퉁퉁퉁퉁퉁 사후르",
     emoji: "🏏",
     description:
       "야구 방망이를 들고 있는 무서운 캐릭터로, 단호하고 타협하지 않는 위협적인 존재감을 가집니다. 다양한 형태로 변신할 수 있는 능력을 지녔으며, 공격적인 전투 스타일을 선호합니다.",
@@ -169,7 +169,7 @@ export const resultTypes: Record<string, ResultType> = {
     compatibility:
       "트랄랄레로 트랄랄라랑은 운명적 만남! 너네 둘이 같이 있으면 주변 사람들이 '이 케미 실화냐' 할 정도로 찰떡이야. 건강한 관계의 표본! 💖",
     badCompatibility:
-      "퉁퉁퉁퉁 사후르랑은 지옥의 조합! 너의 온화한 에너지가 사후르의 폭주 모드를 제어하지 못하고, 걔의 공격적인 스타일에 너는 상처만 받을 듯. '왜 이렇게 무서워...?' 떨면서 도망치는 엔딩... 😨",
+      "퉁퉁퉁퉁퉁퉁퉁퉁퉁 사후르랑은 지옥의 조합! 너의 온화한 에너지가 사후르의 폭주 모드를 제어하지 못하고, 걔의 공격적인 스타일에 너는 상처만 받을 듯. '왜 이렇게 무서워...?' 떨면서 도망치는 엔딩... 😨",
     imageUrl: "/images/patafim.webp",
     goodMatch: {
       id: "tralalero",
@@ -179,7 +179,7 @@ export const resultTypes: Record<string, ResultType> = {
     },
     badMatch: {
       id: "sahuhr",
-      title: "퉁퉁퉁퉁퉁퉁퉁퉁퉁퉁퉁퉁 사후르",
+      title: "퉁퉁퉁퉁퉁퉁퉁퉁퉁 사후르",
       emoji: "🏏",
       imageUrl: "/images/sahuhr.webp",
     },
@@ -199,13 +199,13 @@ export const resultTypes: Record<string, ResultType> = {
       "셀프 인식 만렙! '내가 이런 사람이다'에 대한 정확한 자기 분석 능력자 👁️",
     ],
     compatibility:
-      "퉁퉁퉁퉁 사후르랑은 급발진 케미! 처음엔 '이게 될까?' 싶지만 알고 보면 서로에 대한 인정과 존중감 넘치는 레전드 조합! 웃음과 깊이를 동시에 가진 관계 💞",
+      "퉁퉁퉁퉁퉁퉁퉁퉁퉁 사후르랑은 급발진 케미! 처음엔 '이게 될까?' 싶지만 알고 보면 서로에 대한 인정과 존중감 넘치는 레전드 조합! 웃음과 깊이를 동시에 가진 관계 💞",
     badCompatibility:
       "보네카 암발라부의 멀티 페르소나 + 트렌드 흡수력 vs 침판지니의 밈드립 + 비밀던전 속마음은 재난 영화급 티키타카 한쪽은 '내 맘은 레벨 99던전', 다른 쪽은 '다 오픈하고 롤코 타자' 스타일이라 띠용 케미 확정 😭 둘이 대화하면 침바니는 '왜 맨날 인싸짓?' 보네카는 '왜 맨날 속마음 숨김?' 하는 찐텐 발생... 그냥 서로 읽씹하는게 평화 ㅇㅈ? 👊",
     imageUrl: "/images/chimpanzini.webp",
     goodMatch: {
       id: "sahuhr",
-      title: "퉁퉁퉁퉁퉁퉁퉁퉁퉁퉁퉁퉁 사후르",
+      title: "퉁퉁퉁퉁퉁퉁퉁퉁퉁 사후르",
       emoji: "🏏",
       imageUrl: "/images/sahuhr.webp",
     },
