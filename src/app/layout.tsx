@@ -1,7 +1,7 @@
 import { QuizProvider } from "@/context/QuizContext";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({
@@ -66,16 +66,28 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   // GA4 측정 ID - 실제 ID로 교체 필요
-  const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || "G-HY8BVPR336";
+  const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || "G-RJPNWEZBV3";
 
   return (
     <html lang="ko">
+      <head>
+        {/* Google Analytics - 직접 스크립트 삽입 */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
+      </head>
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}
       >
-        {/* Google Analytics */}
-        <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
-
         <QuizProvider>{children}</QuizProvider>
       </body>
     </html>
