@@ -1,16 +1,17 @@
-'use client';
+"use client";
 
-import React, { createContext, useContext, useState, ReactNode } from 'react';
-import { questions } from '../data/questions';
-import { UserAnswer, calculateResult } from '../lib/logic';
+import { ResultTestType } from "@/data/results";
+import { ReactNode, createContext, useContext, useState } from "react";
+import { questions } from "../data/questions";
+import { UserAnswer, calculateResult } from "../lib/logic";
 
 // 컨텍스트 타입 정의
 interface QuizContextType {
   currentQuestionIndex: number;
   answers: UserAnswer[];
-  resultTypeId: string | null;
+  resultTypeId: ResultTestType | null;
   isComplete: boolean;
-  
+
   // 액션
   selectAnswer: (questionId: number, optionId: string) => void;
   goToNextQuestion: () => void;
@@ -25,7 +26,7 @@ const defaultContext: QuizContextType = {
   answers: [],
   resultTypeId: null,
   isComplete: false,
-  
+
   selectAnswer: () => {},
   goToNextQuestion: () => {},
   goToPreviousQuestion: () => {},
@@ -43,7 +44,7 @@ export const useQuiz = () => useContext(QuizContext);
 export const QuizProvider = ({ children }: { children: ReactNode }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<UserAnswer[]>([]);
-  const [resultTypeId, setResultTypeId] = useState<string | null>(null);
+  const [resultTypeId, setResultTypeId] = useState<ResultTestType | null>(null);
   const [isComplete, setIsComplete] = useState(false);
 
   // 답변 선택 함수
@@ -93,7 +94,7 @@ export const QuizProvider = ({ children }: { children: ReactNode }) => {
     // 모든 질문에 답변했는지 확인
     if (answers.length === questions.length) {
       // 결과 계산
-      const options = questions.map(question => question.options);
+      const options = questions.map((question) => question.options);
       const result = calculateResult(answers, options);
       setResultTypeId(result);
       setIsComplete(true);

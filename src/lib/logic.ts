@@ -1,5 +1,5 @@
 import { Option } from "../data/questions";
-import { resultTypes } from "../data/results";
+import { ResultTestType, resultTypes } from "../data/results";
 
 // 사용자 응답 타입 정의
 export interface UserAnswer {
@@ -8,9 +8,9 @@ export interface UserAnswer {
 }
 
 // 점수 계산 결과 타입
-interface ScoreResult {
-  [key: string]: number;
-}
+type ScoreResult = {
+  [key in ResultTestType]: number;
+};
 
 /**
  * 사용자 응답을 기반으로 결과 유형 계산
@@ -21,15 +21,15 @@ interface ScoreResult {
 export function calculateResult(
   answers: UserAnswer[],
   options: Option[][]
-): string {
+): ResultTestType {
   // 각 유형별 점수 초기화
   const scores: ScoreResult = {
     tralalero: 0,
     bombardiro: 0,
-    suhuhr: 0,
+    sahuhr: 0,
     ambalaboo: 0,
     patafim: 0,
-    chimpanini: 0,
+    chimpanzini: 0,
   };
 
   // 각 응답에 대해 점수 계산
@@ -46,12 +46,12 @@ export function calculateResult(
 
   // 가장 높은 점수를 받은 유형 찾기
   let maxScore = 0;
-  let resultTypeId = "tralalero"; // 기본값
+  let resultTypeId: ResultTestType = "tralalero"; // 기본값
 
   Object.entries(scores).forEach(([typeId, score]) => {
     if (score > maxScore) {
       maxScore = score;
-      resultTypeId = typeId;
+      resultTypeId = typeId as ResultTestType;
     }
   });
 
@@ -63,7 +63,7 @@ export function calculateResult(
  * @param resultTypeId 결과 유형 ID
  * @returns 결과 유형 객체
  */
-export function getResultById(resultTypeId: string) {
+export function getResultById(resultTypeId: ResultTestType) {
   return resultTypes[resultTypeId] || resultTypes.tralalero; // 기본값으로 tralalero 반환
 }
 

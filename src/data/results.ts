@@ -1,6 +1,14 @@
+export type ResultTestType =
+  | "tralalero"
+  | "bombardiro"
+  | "sahuhr"
+  | "ambalaboo"
+  | "patafim"
+  | "chimpanzini";
+
 // 결과 유형 타입 정의
 export interface ResultType {
-  id: string;
+  id: ResultTestType;
   title: string;
   emoji: string;
   description: string;
@@ -23,7 +31,7 @@ export interface ResultType {
   };
 }
 
-export const resultTypes: Record<string, ResultType> = {
+export const resultTypes: Record<ResultTestType, ResultType> = {
   tralalero: {
     id: "tralalero",
     title: "트랄랄레로 트랄랄라",

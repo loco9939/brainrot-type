@@ -1,3 +1,5 @@
+import { ResultTestType } from "./results";
+
 // 질문 타입 정의
 export interface Question {
   id: number;
@@ -9,7 +11,7 @@ export interface Question {
 export interface Option {
   id: string;
   text: string;
-  value: string; // 어떤 유형에 가중치를 줄지 결정 (예: "tralalero", "bombardiro" 등)
+  value: ResultTestType; // 어떤 유형에 가중치를 줄지 결정 (예: "tralalero", "bombardiro" 등)
   score: number; // 해당 유형에 얼마나 가중치를 줄지 결정 (1-5)
 }
 
@@ -58,7 +60,7 @@ export const questions: Question[] = [
       {
         id: "2-2",
         text: "🧘 혼자서 취미 생활하는 게 짱임",
-        value: "chimpanini",
+        value: "chimpanzini",
         score: 5,
       },
       {
@@ -100,7 +102,7 @@ export const questions: Question[] = [
       {
         id: "3-4",
         text: "🌈 다양한 경험하고 적응하는 능력",
-        value: "chimpanini",
+        value: "chimpanzini",
         score: 4,
       },
     ],
@@ -118,7 +120,7 @@ export const questions: Question[] = [
       {
         id: "4-2",
         text: "🧩 거리 두고 전략적으로 접근함",
-        value: "chimpanini",
+        value: "chimpanzini",
         score: 5,
       },
       {
@@ -190,7 +192,7 @@ export const questions: Question[] = [
       {
         id: "6-4",
         text: "🎨 예술적이고 창의적인 다양한 활동들",
-        value: "chimpanini",
+        value: "chimpanzini",
         score: 5,
       },
     ],
@@ -274,7 +276,7 @@ export const questions: Question[] = [
       {
         id: "9-3",
         text: "🚧 내 영역이 침범당할 때",
-        value: "chimpanini",
+        value: "chimpanzini",
         score: 5,
       },
       {
@@ -292,7 +294,7 @@ export const questions: Question[] = [
       {
         id: "10-1",
         text: "🌟 트렌디하고 성공적인 삶",
-        value: "chimpanini",
+        value: "chimpanzini",
         score: 5,
       },
       {

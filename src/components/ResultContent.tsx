@@ -3,6 +3,7 @@
 import { ResultCard } from "@/components/ResultCard";
 import { FadeIn, PageTransition, SlideDown } from "@/components/ui/animations";
 import { useQuiz } from "@/context/QuizContext";
+import { ResultTestType } from "@/data/results";
 import { trackResultType, trackShareClick } from "@/lib/analytics";
 import { getResultById } from "@/lib/logic";
 import { useRouter } from "next/navigation";
@@ -11,7 +12,7 @@ import { useEffect, useState } from "react";
 export function ResultContent({
   initialTypeId,
 }: {
-  initialTypeId?: string | null;
+  initialTypeId?: ResultTestType;
 }) {
   const router = useRouter();
   const { resultTypeId: contextResultTypeId, restartQuiz } = useQuiz();
@@ -19,7 +20,7 @@ export function ResultContent({
   const [shareSuccess, setShareSuccess] = useState(false);
 
   // 결과 타입 ID 결정 (URL 파라미터 또는 컨텍스트에서)
-  const [resultTypeId, setResultTypeId] = useState<string | null>(null);
+  const [resultTypeId, setResultTypeId] = useState<ResultTestType>("tralalero");
 
   useEffect(() => {
     // URL 파라미터에서 타입 ID가 있으면 사용, 없으면 컨텍스트에서 가져옴

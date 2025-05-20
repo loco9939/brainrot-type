@@ -2,8 +2,8 @@
 
 // 결과 유형 이벤트 추적
 export const trackResultType = (resultType: string) => {
-  if (typeof window !== 'undefined' && (window as any).gtag) {
-    (window as any).gtag('event', 'result_type', {
+  if (typeof window !== "undefined" && (window as any).gtag) {
+    (window as any).gtag("event", "result_type", {
       result_type: resultType,
     });
   }
@@ -11,8 +11,8 @@ export const trackResultType = (resultType: string) => {
 
 // 공유 버튼 클릭 이벤트 추적
 export const trackShareClick = (platform: string) => {
-  if (typeof window !== 'undefined' && (window as any).gtag) {
-    (window as any).gtag('event', 'share_click', {
+  if (typeof window !== "undefined" && (window as any).gtag) {
+    (window as any).gtag("event", "share_click", {
       platform: platform,
     });
   }
@@ -20,14 +20,14 @@ export const trackShareClick = (platform: string) => {
 
 // 퀴즈 시작 이벤트 추적
 export const trackQuizStart = () => {
-  if (typeof window !== 'undefined' && (window as any).gtag) {
-    (window as any).gtag('event', 'quiz_start');
+  if (typeof window !== "undefined" && (window as any).gtag) {
+    (window as any).gtag("event", "quiz_start");
   }
 };
 
 // 퀴즈 완료 이벤트 추적
 export const trackQuizComplete = () => {
-  if (typeof window !== 'undefined' && (window as any).gtag) {
-    (window as any).gtag('event', 'quiz_complete');
+  if (typeof window !== "undefined" && (window as any).gtag) {
+    (window as any).gtag("event", "quiz_complete");
   }
 };

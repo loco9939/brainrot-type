@@ -1,12 +1,12 @@
 import { ResultContent } from "@/components/ResultContent";
-import { resultTypes } from "@/data/results";
+import { ResultTestType, resultTypes } from "@/data/results";
 import { Metadata } from "next";
 
 // 동적 메타데이터 생성 함수
 export async function generateMetadata(props: any): Promise<Metadata> {
   const { searchParams = {} } = props;
   // searchParams에서 결과 타입 ID 가져오기
-  const typeId = (searchParams?.type as string) || "";
+  const typeId = (searchParams?.type as ResultTestType) || "";
   const title = (searchParams?.title as string) || "브레인롯 유형 테스트";
   const emoji = (searchParams?.emoji as string) || "🧠";
 
@@ -68,7 +68,7 @@ export async function generateMetadata(props: any): Promise<Metadata> {
 export default function ResultPage(props: any) {
   const { searchParams = {} } = props;
   // URL 파라미터에서 타입 ID 가져오기
-  const typeId = searchParams?.type as string;
+  const typeId = searchParams?.type as ResultTestType;
 
   return <ResultContent initialTypeId={typeId} />;
 }
