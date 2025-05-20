@@ -25,7 +25,7 @@ export function ResultCard({ result, onRestart, onShare }: ResultCardProps) {
         <div className="mx-auto mb-4 text-6xl md:text-7xl animate-bounce-slow">
           {result.emoji}
         </div>
-        <CardTitle className="text-2xl md:text-3xl font-bold">
+        <CardTitle className="text-2xl mb-4 md:text-3xl font-bold">
           <span className="text-primary">{result.title}</span>
         </CardTitle>
         <div className="relative w-full h-[400px] overflow-hidden rounded-lg shadow-sm">
@@ -42,14 +42,14 @@ export function ResultCard({ result, onRestart, onShare }: ResultCardProps) {
             </div>
           )}
         </div>
-        <CardDescription className="mt-3 text-base md:text-lg">
+        <CardDescription className="mt-3 text-base md:text-lg break-keep">
           {result.description}
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-6 pt-2">
         <div className="space-y-3">
           <h3 className="text-lg md:text-xl font-semibold text-primary">
-            특징:
+            특징
           </h3>
           <ul className="space-y-2 pl-5 list-disc text-base md:text-lg">
             {result.characteristics.map((trait, index) => (
@@ -62,11 +62,10 @@ export function ResultCard({ result, onRestart, onShare }: ResultCardProps) {
 
         <div className="p-4 md:p-5 rounded-lg bg-muted/60 border border-muted">
           <h3 className="text-lg md:text-xl font-semibold mb-3 text-primary">
-            궁합:
+            궁합
           </h3>
-          <p className="text-base md:text-lg mb-4">{result.compatibility}</p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+
+          <div className="grid grid-cols-1 gap-4 mt-4">
             {/* 잘 맞는 궁합 */}
             <div className="border border-green-200 bg-green-50/30 dark:bg-green-950/20 rounded-lg p-3">
               <h4 className="text-base font-medium text-green-600 dark:text-green-400 mb-2">
@@ -91,8 +90,11 @@ export function ResultCard({ result, onRestart, onShare }: ResultCardProps) {
                   <p className="font-medium">{result.goodMatch.title}</p>
                 </div>
               </div>
+              <p className="text-base md:text-lg mt-4 break-keep">
+                {result.compatibility}
+              </p>
             </div>
-            
+
             {/* 안 맞는 궁합 */}
             <div className="border border-red-200 bg-red-50/30 dark:bg-red-950/20 rounded-lg p-3">
               <h4 className="text-base font-medium text-red-600 dark:text-red-400 mb-2">
@@ -117,6 +119,9 @@ export function ResultCard({ result, onRestart, onShare }: ResultCardProps) {
                   <p className="font-medium">{result.badMatch.title}</p>
                 </div>
               </div>
+              <p className="text-base md:text-lg mt-4 break-keep">
+                {result.badCompatibility}
+              </p>
             </div>
           </div>
         </div>

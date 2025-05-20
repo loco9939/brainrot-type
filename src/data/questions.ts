@@ -57,13 +57,13 @@ export const questions: Question[] = [
       },
       {
         id: "2-2",
-        text: "🧘 혼자서 취미 생활 파는 게 짱임",
+        text: "🧘 혼자서 취미 생활하는 게 짱임",
         value: "chimpanini",
         score: 5,
       },
       {
         id: "2-3",
-        text: "🌿 자연 속에서 힐링하는 거 최고",
+        text: "🌿 자연 속에서 힐링하는 게 최고",
         value: "patafim",
         score: 5,
       },
@@ -189,7 +189,7 @@ export const questions: Question[] = [
       },
       {
         id: "6-4",
-        text: "🎨 창의적이고 다양한 활동들",
+        text: "🎨 예술적이고 창의적인 다양한 활동들",
         value: "chimpanini",
         score: 5,
       },
@@ -267,7 +267,7 @@ export const questions: Question[] = [
       },
       {
         id: "9-2",
-        text: "🤨 내 신념이나 원칙이 도전받을 때",
+        text: "🤨 내 신념이나 원칙을 지키지 못할 때",
         value: "bombardiro",
         score: 3,
       },

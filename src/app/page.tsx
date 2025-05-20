@@ -167,7 +167,7 @@ export default function Home() {
                         >
                           <span>{result.emoji}</span>
                           <span className="text-primary dark:text-primary-light">
-                            {result.title.split(" ")[0]}
+                            {result.title}
                           </span>
                         </span>
                       </StaggerItem>
@@ -177,12 +177,12 @@ export default function Home() {
 
                 <div className="relative">
                   <p className="text-lg md:text-xl font-medium">
-                    혼돈과 밈의 세계에서 당신은 어떤 유형일까요?
+                    혼돈과 밈의 세계에서 당신은 어떤 유형?
                   </p>
                 </div>
 
                 <div className="p-4 rounded-lg">
-                  <p className="text-muted-foreground">
+                  <p className="text-muted-foreground break-keep">
                     재미있는 질문에 답하고 나의 유형을 확인해보세요!
                     <br /> 여러분의 유형은 어떤 밈 캐릭터일까요?
                   </p>
