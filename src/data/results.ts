@@ -7,6 +7,18 @@ export interface ResultType {
   characteristics: string[];
   compatibility: string;
   imageUrl: string;
+  goodMatch: {
+    id: string;
+    title: string;
+    emoji: string;
+    imageUrl: string;
+  };
+  badMatch: {
+    id: string;
+    title: string;
+    emoji: string;
+    imageUrl: string;
+  };
 }
 
 export const resultTypes: Record<string, ResultType> = {
@@ -26,6 +38,18 @@ export const resultTypes: Record<string, ResultType> = {
     compatibility:
       "브르르 브르르 파타핌과 좋은 관계를 형성할 수 있으며, 건전하고 균형 잡힌 파트너십이 가능합니다.",
     imageUrl: "/images/tralalero.webp",
+    goodMatch: {
+      id: "patafim",
+      title: "브르르 브르르 파타핌",
+      emoji: "🌳",
+      imageUrl: "/images/patafim.webp",
+    },
+    badMatch: {
+      id: "bombardiro",
+      title: "봄바르디로 크로코딜로",
+      emoji: "🐊",
+      imageUrl: "/images/bombardiro.webp",
+    },
   },
   bombardiro: {
     id: "bombardiro",
@@ -43,6 +67,18 @@ export const resultTypes: Record<string, ResultType> = {
     compatibility:
       "퉁퉁퉁퉁 사후르와는 경쟁 관계이나, 보네카 암발라부와는 상호 보완적인 관계를 형성할 수 있습니다.",
     imageUrl: "/images/bombardiro.webp",
+    goodMatch: {
+      id: "ambalaboo",
+      title: "보네카 암발라부",
+      emoji: "🐸",
+      imageUrl: "/images/ambalaboo.webp",
+    },
+    badMatch: {
+      id: "tralalero",
+      title: "트랄랄레로 트랄랄라",
+      emoji: "🦈",
+      imageUrl: "/images/tralalero.webp",
+    },
   },
   sahuhr: {
     id: "sahuhr",
@@ -60,6 +96,18 @@ export const resultTypes: Record<string, ResultType> = {
     compatibility:
       "봄바르디로 크로코딜로를 이길 수 있지만, 침판지니 바나니니와는 상호 존중하는 관계를 형성할 수 있습니다.",
     imageUrl: "/images/sahuhr.webp",
+    goodMatch: {
+      id: "chimpanzini",
+      title: "침판지니 바나니니",
+      emoji: "🍌",
+      imageUrl: "/images/chimpanzini.webp",
+    },
+    badMatch: {
+      id: "bombardiro",
+      title: "봄바르디로 크로코딜로",
+      emoji: "🐊",
+      imageUrl: "/images/bombardiro.webp",
+    },
   },
   ambalaboo: {
     id: "ambalaboo",
@@ -77,6 +125,18 @@ export const resultTypes: Record<string, ResultType> = {
     compatibility:
       "봄바르디로 크로코딜로와 상호 보완적이며, 브르르 브르르 파타핌과도 창의적인 관계를 형성할 수 있습니다.",
     imageUrl: "/images/ambalaboo.webp",
+    goodMatch: {
+      id: "bombardiro",
+      title: "봄바르디로 크로코딜로",
+      emoji: "🐊",
+      imageUrl: "/images/bombardiro.webp",
+    },
+    badMatch: {
+      id: "chimpanzini",
+      title: "침판지니 바나니니",
+      emoji: "🍌",
+      imageUrl: "/images/chimpanzini.webp",
+    },
   },
   patafim: {
     id: "patafim",
@@ -94,6 +154,18 @@ export const resultTypes: Record<string, ResultType> = {
     compatibility:
       "트랄랄레로 트랄랄라와 건전한 파트너십이 가능하며, 보네카 암발라부와도 창의적인 시너지를 발휘합니다.",
     imageUrl: "/images/patafim.webp",
+    goodMatch: {
+      id: "tralalero",
+      title: "트랄랄레로 트랄랄라",
+      emoji: "🦈",
+      imageUrl: "/images/tralalero.webp",
+    },
+    badMatch: {
+      id: "sahuhr",
+      title: "퉁퉁퉁퉁퉁퉁퉁퉁퉁퉁퉁퉁 사후르",
+      emoji: "🏏",
+      imageUrl: "/images/sahuhr.webp",
+    },
   },
   chimpanzini: {
     id: "chimpanzini",
@@ -111,5 +183,17 @@ export const resultTypes: Record<string, ResultType> = {
     compatibility:
       "퉁퉁퉁퉁 사후르와 상호 존중하는 관계가 가능하며, 트랄랄레로 트랄랄라와도 재미있는 교류를 즐길 수 있습니다.",
     imageUrl: "/images/chimpanzini.webp",
+    goodMatch: {
+      id: "sahuhr",
+      title: "퉁퉁퉁퉁퉁퉁퉁퉁퉁퉁퉁퉁 사후르",
+      emoji: "🏏",
+      imageUrl: "/images/sahuhr.webp",
+    },
+    badMatch: {
+      id: "ambalaboo",
+      title: "보네카 암발라부",
+      emoji: "🐸",
+      imageUrl: "/images/ambalaboo.webp",
+    },
   },
 };
