@@ -13,7 +13,7 @@ export async function generateMetadata(props: any): Promise<Metadata> {
   // 절대 URL 생성
   const baseUrl =
     process.env.NEXT_PUBLIC_BASE_URL ||
-    "https://brainrot-personality-test.windsurf.build";
+    "https://brainrot-type-test.netlify.app";
 
   // 타입에 따른 이미지 URL 생성 - 기본 OG 이미지
   let ogImageUrl = `${baseUrl}/api/og?title=${encodeURIComponent(

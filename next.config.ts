@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   env: {
     NEXT_PUBLIC_BASE_URL: process.env.VERCEL_URL
       ? process.env.VERCEL_URL
-      : "https://brainrot-personality-test.windsurf.build",
+      : "https://brainrot-type-test.netlify.app",
   },
 
   // 이미지 도메인 설정
