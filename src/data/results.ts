@@ -8,6 +8,7 @@ export interface ResultType {
   compatibility: string;
   badCompatibility: string;
   imageUrl: string;
+  voiceUrl?: string; // 결과 음성 파일 경로 (선택적)
   goodMatch: {
     id: string;
     title: string;
@@ -29,6 +30,7 @@ export const resultTypes: Record<string, ResultType> = {
     emoji: "🦈",
     description:
       "경쟁을 즐기며 가족을 중시하는 자신감 넘치는 트렌드세터입니다. 다리가 3개인 독특한 상어로, 유행에 민감하면서도 여유롭게 삶을 즐기는 매력적인 성격의 소유자입니다.",
+    voiceUrl: "/voices/tralalero.mp3",
     characteristics: [
       "승부욕 폭발! 도전 없인 못 살아, 늘 새로운 자극을 찾는 챌린저 타입 ✨",
       "가족 바이브 충만! 패밀리 타임은 진심 소중, 자녀들과 찐케미 형성 중 💯",
@@ -60,6 +62,7 @@ export const resultTypes: Record<string, ResultType> = {
     emoji: "🐊",
     description:
       "폭격기와 악어의 합성체로, 공격적이고 직접적인 접근 방식을 선호합니다. 원거리 전투에 특화되었지만 근접전에 약한 전략가로, 자신만의 신념에 강하게 고착된 성격입니다.",
+    voiceUrl: "/voices/bombardiro.mp3",
     characteristics: [
       "텐션 MAX! 솔직담백 스트레이트 화법으로 상대 멘탈 붕괴시키는 스킬 소유자 🎯",
       "원거리 저격수 모드! 내 페이스 유지하면서 게임 플레이하는 전략적 두뇌 🧠",
@@ -87,10 +90,11 @@ export const resultTypes: Record<string, ResultType> = {
   },
   sahuhr: {
     id: "sahuhr",
-    title: "퉁퉁퉁퉁퉁퉁퉁퉁퉁퉁퉁퉁 사후르",
+    title: "퉁퉁퉁퉁 사후르",
     emoji: "🏏",
     description:
       "야구 방망이를 들고 있는 무서운 캐릭터로, 단호하고 타협하지 않는 위협적인 존재감을 가집니다. 다양한 형태로 변신할 수 있는 능력을 지녔으며, 공격적인 전투 스타일을 선호합니다.",
+    voiceUrl: "/voices/sahuhr.mp3",
     characteristics: [
       "No 타협! Yes 직진! 한번 결심하면 끝까지 밀어붙이는 불도저 에너지 ⚡",
       "첫인상 충격적! '어 저사람 뭐지?' 한마디도 안 했는데 강렬한 존재감 뿜뿜 👀",
@@ -122,6 +126,7 @@ export const resultTypes: Record<string, ResultType> = {
     emoji: "🐸",
     description:
       "머리는 개구리, 몸통은 타이어, 다리는 사람 다리를 가진 독특한 캐릭터로, 급격한 변화를 받아들이고 새로운 정체성으로 적응할 수 있는 유연성을 가진 다면적 성격의 소유자입니다.",
+    voiceUrl: "/voices/ambalaboo.mp3",
     characteristics: [
       "인생 롤러코스터 웰컴! 급격한 변화에도 'ㄴㄴ 괜찮아~' 하며 적응하는 유연함 💫",
       "멀티 페르소나 장인! 인스타, 틱톡, 회사, 집... 장소별로 다른 내 모습 완벽 소화 👥",
@@ -153,6 +158,7 @@ export const resultTypes: Record<string, ResultType> = {
     emoji: "🌳",
     description:
       "숲을 지키며 나무의 뿌리를 이용해 침입자로부터 영역을 방어하는 보호자입니다. 순수하고 건전한 가치관을 추구하며, 다른 존재와 조화롭게 공존하는 협력적 성격을 가지고 있습니다.",
+    voiceUrl: "/voices/patafim.mp3",
     characteristics: [
       "내 사람 보호 본능 세계 1위! 소중한 이들 위해서라면 불도 물도 다 건너는 라이프가드 💓",
       "상황별 맞춤 전략 장인! TPO에 따라 직구와 간접공격 오가는 갓벽한 센스 👑",
@@ -184,6 +190,7 @@ export const resultTypes: Record<string, ResultType> = {
     emoji: "🍌",
     description:
       "바나나 껍질 안에 숨겨진 단단한 근육을 가진 침팬지로, 겉으로는 부드럽지만 내면에는 강한 능력과 잠재력을 숨기고 있습니다. 유머와 장난기를 통해 타인과 소통하는 것을 즐기는 성격의 소유자입니다.",
+    voiceUrl: "/voices/chimpanzini.mp3",
     characteristics: [
       "겉바속촉 끝판왕! 평범해 보이지만 알고 보면 '어머 이 사람 대박' 급 숨겨진 실력자 🎭",
       "밈 드립 장인! 진지충은 노노~ 농담과 짤로 일상 커뮤니케이션 하는 '웃음사냥꾼' 😆",

@@ -9,6 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { ResultVoice } from "@/components/ResultVoice";
 import { ResultType } from "@/data/results";
 import Image from "next/image";
 
@@ -27,6 +28,7 @@ export function ResultCard({ result, onRestart, onShare }: ResultCardProps) {
         </div>
         <CardTitle className="text-2xl mb-4 md:text-3xl font-bold">
           <span className="text-primary">{result.title}</span>
+          {result.voiceUrl && <ResultVoice voiceUrl={result.voiceUrl} autoPlay={false} />}
         </CardTitle>
         <div className="relative w-full h-[400px] overflow-hidden rounded-lg shadow-sm">
           {result.imageUrl ? (
